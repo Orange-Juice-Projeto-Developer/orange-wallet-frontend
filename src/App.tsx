@@ -1,11 +1,9 @@
 import React from "react";
+import Header from "./components/Header";
 
 function App() {
 	return (
-		<div>
-			Hello World
-			<button>OK</button>
-		</div>
+		<Header />
 	);
 }
 
