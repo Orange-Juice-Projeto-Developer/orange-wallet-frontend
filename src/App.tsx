@@ -1,14 +1,12 @@
 import React from "react";
-import Header from "./components/Header";
-import ReceitaTotal from "./components/ReceitaTotal";
+import Home from "./pages/Home";
 
 function App() {
-	return (
-		<>
-			<Header />
-			<ReceitaTotal />
-		</>
-	);
+  return (
+    <>
+      <Home />
+    </>
+  );
 }
 
 export default App;

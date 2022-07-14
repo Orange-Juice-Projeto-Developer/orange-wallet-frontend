@@ -4,10 +4,11 @@ import sinoIcon from "../../assets/images/sino.svg";
 import eyeIcon from "../../assets/images/bi_eye-slash.svg";
 import dolarIcon from "../../assets/images/dolar.svg";
 import plusIcon from "../../assets/images/icon-button-plus.svg";
+import ReceitaTotal from "../ReceitaTotal";
 
-function Header() {
+export function HeaderMobile() {
 	return (
-		<header className="bg-gradient-to-b from-[rgba(19,19,19,0.4126)] to-[#323131] rounded-b-[30px] pb-[26px] font-roboto">
+		<header className="bg-gradient-to-b from-[rgba(19,19,19,0.4126)] to-[#323131] rounded-b-[30px] pb-[26px] font-roboto sm:mobile ">
 			<div className="flex justify-between px-4 pt-[26px]">
 				<div>
 					<span className="text-base text-white">Ola,</span>
@@ -31,8 +32,7 @@ function Header() {
 				<img className="inline mr-2" src={plusIcon} alt="" />
 				Cadastrar transação
 			</button>
+      <ReceitaTotal />
 		</header>
 	);
 }
-
-export default Header;

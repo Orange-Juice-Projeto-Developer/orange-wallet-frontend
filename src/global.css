@@ -3,9 +3,19 @@
 @tailwind utilities;
 
 :root {
-	--color-background: #131313;
+  --color-background: #131313;
 }
 
 body {
-	background-color: var(--color-background);
+  background-color: var(--color-background);
+}
+
+@layer components {
+   .mobile {
+    @apply hidden;
+  }
+
+	.desktop {
+    @apply block;
+  }
 }
