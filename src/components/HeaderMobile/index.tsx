@@ -5,6 +5,7 @@ import eyeIcon from "../../assets/images/bi_eye-slash.svg";
 import dolarIcon from "../../assets/images/dolar.svg";
 import plusIcon from "../../assets/images/icon-button-plus.svg";
 import ReceitaTotal from "../ReceitaTotal";
+import DespesaTotal from "../DespesaTotal";
 
 export function HeaderMobile() {
 	return (
@@ -28,11 +29,14 @@ export function HeaderMobile() {
 				</div>
 				<img src={dolarIcon} alt="Ícone de dolar" />
 			</div>
+			<div className="flex gap-1 justify-center mx-3 my-6">
+				<ReceitaTotal />
+				<DespesaTotal />
+			</div>
 			<button className="text-black text-base font-bold bg-orange rounded-3xl py-[14px] px-24 mx-auto flex items-center">
 				<img className="inline mr-2" src={plusIcon} alt="" />
 				Cadastrar transação
 			</button>
-      <ReceitaTotal />
 		</header>
 	);
 }
