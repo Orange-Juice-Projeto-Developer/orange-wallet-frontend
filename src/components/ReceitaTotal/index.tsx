@@ -4,7 +4,7 @@ import eyeIcon from "../../assets/images/eye-icon.svg";
 
 function ReceitaTotal() {
 	return (
-		<div className="bg-background2 flex flex-col lg:items-start lg:justify-between font-roboto rounded-lg w-[181px] lg:w-[305px] lg:h-[148px] px-2 py-4 lg:p-4">
+		<div className="bg-background2 flex flex-col lg:items-start lg:justify-between font-roboto rounded-lg w-[50%] lg:w-[305px] lg:h-[148px] px-2 py-4 lg:p-4">
 			<div className="flex justify-between items-center lg:container">
 				<div className="flex flex-col">
 					<span className="text-white text-xs lg:mb-4">Receita</span>
