@@ -1,6 +1,5 @@
 import React from "react";
 import receitaIcon from "../../assets/images/receitas-icon.png";
-import eyeIcon from "../../assets/images/eye-icon.svg";
 
 function ReceitaTotal() {
 	return (
@@ -13,7 +12,6 @@ function ReceitaTotal() {
 							<span className="text-green text-xs">R$ </span>
 							<span className="text-lg text-green mr-3">5.000,00</span>
 						</div>
-						<img className="hidden lg:block" src={eyeIcon} alt="olho com um traço" />
 					</div>
 				</div>
 				<img className="w-[30px] h-[30px]" src={receitaIcon} alt="Seta para cima verde" />
