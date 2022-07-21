@@ -17,6 +17,7 @@ export function HeaderMobile() {
 					<span className="text-2xl text-white">Theodoro</span>
 				</div>
 				<div>
+					<img className="inline mr-4" src={eyeIcon} alt="Ícone de olho cortado" />
 					<img className="inline mr-4" src={sinoIcon} alt="Ícone de notificações" />
 					<img className="inline" src={imagePerfil} alt="Foto de perfil" />
 				</div>
@@ -25,7 +26,6 @@ export function HeaderMobile() {
 				<div>
 					<span className="block text-white text-sm mb-3">Seu saldo atual é de</span>
 					<span className="text-2xl text-white">R$ 8.050,00</span>
-					<img className="inline ml-4 mb-[5px]" src={eyeIcon} alt="Ícone de olho cortado" />
 				</div>
 				<img src={dolarIcon} alt="Ícone de dolar" />
 			</div>
