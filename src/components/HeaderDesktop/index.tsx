@@ -1,11 +1,12 @@
 import React from "react";
 import imagePerfil from "../../assets/images/perfil.png";
-import sinoIcon from "../../assets/images/sino.svg";
+import bellIcon from "../../assets/images/sino.svg";
 import eyeIcon from "../../assets/images/bi_eye-slash.svg";
 import dolarIcon from "../../assets/images/dolar.svg";
 import plusIcon from "../../assets/images/icon-button-plus.svg";
-import DespesaTotal from "../DespesaTotal";
-import ReceitaTotal from "../ReceitaTotal";
+import { IncomeTotal } from "../IncomeTotal";
+import { OutcomeTotal } from "../OutcomeTotal";
+
 
 export function HeaderDesktop() {
 	return (
@@ -20,14 +21,14 @@ export function HeaderDesktop() {
 					<img className="mr-5" src={eyeIcon} />
 					<img
 						className="mr-4 w-6"
-						src={sinoIcon}
+						src={bellIcon}
 						alt="Ícone de notificações"
 					/>
 					<img src={imagePerfil} alt="Foto de perfil" />
 				</div>
 			</div>
 			<div className="flex gap-6 items-center justify-center px-4">
-				<ReceitaTotal />
+				<IncomeTotal />
 				<div className="bg-gray-300 rounded-lg my-7 px-4 py-4 flex justify-between max-w-[26rem] h-[151px] shadow-md">
 					<div className="flex flex-col">
 						<span className=" text-gray-50 text-base mb-3">
@@ -45,7 +46,7 @@ export function HeaderDesktop() {
 						</div>
 					</div>
 				</div>
-				<DespesaTotal />
+				<OutcomeTotal />
 			</div>
 			<button className="flex justify-center items-center text-gray-600 text-lg font-bold bg-orange-500 rounded-3xl py-[14px] px-24 mx-auto w-[415px]">
 				<img className="mr-2 w-[22px]" src={plusIcon} alt="icone de adição" />
