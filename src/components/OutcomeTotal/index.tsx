@@ -1,6 +1,5 @@
 import React from "react";
 import outcomeIcon from "../../assets/images/despesas-icon.png";
-import eyeIcon from "../../assets/images/eye-icon.svg";
 
 export function OutcomeTotal() {
 	return (
