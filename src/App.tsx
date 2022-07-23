@@ -1,9 +1,11 @@
 import React from "react";
-import Header from "./components/Header";
+import { TransactionsList } from "./components/TransactionsList";
 
 function App() {
 	return (
-		<Header />
+		<main className="h-screen flex flex-col gap-4">
+			<TransactionsList />
+		</main>
 	);
 }
 
