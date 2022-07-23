@@ -1,12 +1,11 @@
 import React from "react";
-import { TransactionsList } from "./components/TransactionsList";
+import Home from "./pages/Home";
 
 function App() {
 	return (
-		<main className="h-screen flex flex-col gap-4">
-			<TransactionsList />
-		</main>
+		<>
+			<Home />
+		</>
 	);
-}
 
 export default App;
