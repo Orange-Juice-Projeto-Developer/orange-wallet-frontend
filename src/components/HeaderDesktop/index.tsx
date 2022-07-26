@@ -6,9 +6,29 @@ import dolarIcon from "../../assets/images/dolar.svg";
 import plusIcon from "../../assets/images/icon-button-plus.svg";
 import { IncomeTotal } from "../IncomeTotal";
 import { OutcomeTotal } from "../OutcomeTotal";
-
+import { useTransaction } from "../../hooks/useTransactions";
 
 export function HeaderDesktop() {
+	const { transactions } = useTransaction();
+
+	const values = transactions.reduce(
+		(acc, transaction) => {
+			if (transaction.type === "Receita") {
+				acc.incomes += transaction.value;
+				acc.total += transaction.value;
+			} else {
+				acc.outcome += transaction.value;
+				acc.total -= transaction.value;
+			}
+			return acc;
+		},
+		{
+			outcome: 0,
+			incomes: 0,
+			total: 0,
+		}
+	);
+
 	return (
 		<header className="hidden sm:desktop bg-gradient-to-b from-[rgba(19,19,19,0.4126)] to-[#323131] rounded-b-[30px] pb-7 font-roboto">
 			<div className="flex justify-between items-center px-16 pt-16 pb-8">
@@ -36,7 +56,12 @@ export function HeaderDesktop() {
 						</span>
 						<div className="flex justify-between items-center w-[400px]">
 							<div className="flex">
-								<span className="text-[2rem] text-gray-50">R$ 8.050,00</span>
+								<span className="text-[2rem] text-gray-50">
+									{new Intl.NumberFormat("pt-br", {
+										style: "currency",
+										currency: "BRL",
+									}).format(values.total)}
+								</span>
 							</div>
 							<img
 								src={dolarIcon}
