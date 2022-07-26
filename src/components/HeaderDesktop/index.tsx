@@ -48,7 +48,7 @@ export function HeaderDesktop() {
 				</div>
 			</div>
 			<div className="flex gap-6 items-center justify-center px-4">
-				<IncomeTotal />
+				<IncomeTotal income={values.incomes} />
 				<div className="bg-gray-300 rounded-lg my-7 px-4 py-4 flex justify-between max-w-[26rem] h-[151px] shadow-md">
 					<div className="flex flex-col">
 						<span className=" text-gray-50 text-base mb-3">
@@ -71,7 +71,7 @@ export function HeaderDesktop() {
 						</div>
 					</div>
 				</div>
-				<OutcomeTotal />
+				<OutcomeTotal outcome={values.outcome} />
 			</div>
 			<button className="flex justify-center items-center text-gray-600 text-lg font-bold bg-orange-500 rounded-3xl py-[14px] px-24 mx-auto w-[415px]">
 				<img className="mr-2 w-[22px]" src={plusIcon} alt="icone de adição" />

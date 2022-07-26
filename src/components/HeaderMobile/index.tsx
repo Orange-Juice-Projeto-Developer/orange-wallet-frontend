@@ -66,8 +66,8 @@ export function HeaderMobile() {
 				<img src={dolarIcon} alt="Ícone de dolar" />
 			</div>
 			<div className="flex gap-1 justify-center mx-3 my-6">
-				<IncomeTotal />
-				<OutcomeTotal />
+				<IncomeTotal income={values.incomes} />
+				<OutcomeTotal outcome={values.outcome} />
 			</div>
 			<button className="text-gray-600 text-base font-bold bg-orange-500 rounded-3xl py-[14px] px-24 mx-auto flex items-center">
 				<img className="inline mr-2" src={plusIcon} alt="" />
