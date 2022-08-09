@@ -1,7 +1,8 @@
 import React from "react";
 import imagePerfil from "../../assets/images/perfil.png";
 import bellIcon from "../../assets/images/sino.svg";
-import eyeIcon from "../../assets/images/bi_eye-slash.svg";
+import eyeSlashIcon from "../../assets/images/bi_eye-slash.svg";
+import eyeIcon from "../../assets/images/eye.svg";
 import dolarIcon from "../../assets/images/dolar.svg";
 import plusIcon from "../../assets/images/icon-button-plus.svg";
 import { IncomeTotal } from "../IncomeTotal";
@@ -9,7 +10,7 @@ import { OutcomeTotal } from "../OutcomeTotal";
 import { useTransaction } from "../../hooks/useTransactions";
 
 export function HeaderMobile() {
-	const { transactions } = useTransaction();
+	const { transactions, isVisible, setIsVisible } = useTransaction();
 
 	const values = transactions.reduce(
 		(acc, transaction) => {
@@ -38,11 +39,13 @@ export function HeaderMobile() {
 					<span className="text-2xl text-gray-50">Theodoro</span>
 				</div>
 				<div>
-					<img
-						className="inline mr-4"
-						src={eyeIcon}
-						alt="Ícone de olho cortado"
-					/>
+					<button className="mr-4" onClick={() => setIsVisible(!isVisible)}>
+						<img
+							className="inline"
+							src={isVisible ? eyeSlashIcon : eyeIcon}
+							alt="Ícone de olho cortado"
+						/>
+					</button>
 					<img
 						className="inline mr-4"
 						src={bellIcon}
@@ -57,17 +60,17 @@ export function HeaderMobile() {
 						Seu saldo atual é de
 					</span>
 					<span className="text-2xl text-gray-50">
-						{new Intl.NumberFormat("pt-br", {
+						{isVisible ? new Intl.NumberFormat("pt-br", {
 							style: "currency",
 							currency: "BRL",
-						}).format(values.total)}
+						}).format(values.total) : "R$ *****"}
 					</span>
 				</div>
 				<img src={dolarIcon} alt="Ícone de dolar" />
 			</div>
 			<div className="flex gap-1 justify-center mx-3 my-6">
-				<IncomeTotal income={values.incomes} />
-				<OutcomeTotal outcome={values.outcome} />
+				<IncomeTotal isVisible={isVisible} income={values.incomes} />
+				<OutcomeTotal isVisible={isVisible} outcome={values.outcome} />
 			</div>
 			<button className="text-gray-600 text-base font-bold bg-orange-500 rounded-3xl py-[14px] px-24 mx-auto flex items-center">
 				<img className="inline mr-2" src={plusIcon} alt="" />

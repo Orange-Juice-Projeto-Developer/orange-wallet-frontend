@@ -3,9 +3,10 @@ import outcomeIcon from "../../assets/images/despesas-icon.png";
 
 interface OutcomeTotalProps {
 	outcome: number;
+	isVisible: boolean;
 }
 
-export function OutcomeTotal({ outcome }: OutcomeTotalProps) {
+export function OutcomeTotal({ outcome, isVisible }: OutcomeTotalProps) {
 	return (
 		<div className="bg-gray-300 flex flex-col lg:items-start lg:justify-between font-roboto rounded-lg w-[50%] lg:w-[305px] lg:h-[148px] px-2 py-4 lg:p-4">
 			<div className="flex justify-between items-center lg:container">
@@ -14,10 +15,10 @@ export function OutcomeTotal({ outcome }: OutcomeTotalProps) {
 					<div className="flex">
 						<div>
 							<span className="text-lg text-red-100 mr-3">
-								{new Intl.NumberFormat("pt-br", {
+								{isVisible ? new Intl.NumberFormat("pt-br", {
 									style: "currency",
 									currency: "BRL",
-								}).format(outcome)}
+								}).format(outcome) : "R$ *****"}
 							</span>
 						</div>
 					</div>
