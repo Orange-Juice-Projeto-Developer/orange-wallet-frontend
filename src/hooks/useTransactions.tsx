@@ -12,19 +12,22 @@ interface TransactionsProviderProps {
 
 interface TransactionContextData {
 	transactions: Transaction[]
+	isVisible: boolean,
+	setIsVisible: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const TransactionsContext = createContext({} as TransactionContextData);
 
 export function TransactionsProvider({ children }: TransactionsProviderProps) {
 	const [transactions, setTransactions] = useState<Transaction[]>([]);
+	const [isVisible, setIsVisible] = useState<boolean>(true);
 
 	useEffect(() => {
 		api.get("/listTransaction").then(res => setTransactions(res.data));
 	}, []);
 
 	return (
-		<TransactionsContext.Provider value={{ transactions }}>
+		<TransactionsContext.Provider value={{ transactions, isVisible, setIsVisible }}>
 			{children}
 		</TransactionsContext.Provider>
 	);
