@@ -1,35 +1,29 @@
-import React, { useEffect, useState } from "react";
-import upArrow from "../../assets/images/uparrow.svg";
-import downArrow from "../../assets/images/downarrow.svg";
+import React, { useReducer, useState } from "react";
+import { IncomeButton } from "./components/IncomeButton";
+import { OutcomeButton } from "./components/OutcomeButton";
 
 export function TransactionForm() {
 	const [category, setCategory] = useState<string>();
 	const [transaction, setTransaction] = useState<string>();
 	const [value, setValue] = useState<number>();
 	const [date, setDate] = useState<string>("");
+	const [isActive, setIsActive] = useReducer((isActive: boolean) => !isActive, false);
 
 	return (
-		<>
-			<form className="w-[569px] h-[741px] bg-gradient-to-t from-[#2F2F2F] to-gray-700 rounded-[39px] flex flex-col font-roboto text-gray-50 px-10 pt-[34px] pb-12">
+		<div className="w-full h-full bg-[#00000080] absolute z-50 top-0">
+			<form
+				onSubmit={e => {
+					e.preventDefault();
+				}} 
+				className="w-[569px] h-[741px] bg-gradient-to-t from-[#2F2F2F] to-gray-700 rounded-[39px] flex flex-col font-roboto text-gray-50 px-10 pt-[34px] pb-12 absolute top-[10%] left-[calc(50%-569px/2)]"
+			>
 				<div className="flex justify-end">
 					<button type="button" className="text-xl">X</button>
 				</div>
 				<span className="text-3xl mb-[46px]">Cadastrar transação</span>
-				<div className="flex justify-center mb-[42px]">
-					<button
-						type="button"
-						className="flex justify-center items-center w-[216px] h-[42px] bg-green-400 rounded-[18px] text-gray-600"
-					>
-						<img className="mr-[10px]" src={upArrow} alt="" />
-						Receita
-					</button>
-					<button
-						type="button"
-						className="flex justify-center items-center text-[#FFF] w-[216px] h-[42px] rounded-[18px]"
-					>
-						<img className="mr-[10px]" src={downArrow} alt="" />
-						Despesa
-					</button>
+				<div className="flex justify-center mb-[42px] gap-[10px]">
+					<IncomeButton active={!isActive} setActive={setIsActive} />
+					<OutcomeButton active={isActive} setActive={setIsActive} />
 				</div>
 				<div className="mb-[40px]">
 					<label htmlFor="categoria" className="text-[21px]">
@@ -88,6 +82,6 @@ export function TransactionForm() {
 
 				<button type="submit" className="text-2xl leading-7 font-bold text-gray-600 bg-orange-500 rounded-[27px] w-[415px] h-[60px] mx-auto">Cadastrar</button>
 			</form>
-		</>
+		</div>
 	);
 }
