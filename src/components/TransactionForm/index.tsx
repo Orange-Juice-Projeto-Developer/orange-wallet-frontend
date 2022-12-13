@@ -2,11 +2,20 @@ import React, { useReducer, useState } from "react";
 import { IncomeButton } from "./components/IncomeButton";
 import { OutcomeButton } from "./components/OutcomeButton";
 
+interface IFormValues {
+	category: string;
+	transaction: string;
+	value: number;
+	date: string;
+}
+
 export function TransactionForm() {
-	const [category, setCategory] = useState<string>();
-	const [transaction, setTransaction] = useState<string>();
-	const [value, setValue] = useState<number>();
-	const [date, setDate] = useState<string>("");
+	const [formValues, setFormValues] = useState<IFormValues>({
+		category: "",
+		date: "",
+		transaction: "",
+		value: 0
+	});
 	const [isActive, setIsActive] = useReducer((isActive: boolean) => !isActive, false);
 
 	return (
@@ -34,8 +43,8 @@ export function TransactionForm() {
 						id="categoria"
 						required
 						list=""
-						value={category}
-						onChange={(e) => setCategory(e.target.value)}
+						value={formValues.category}
+						onChange={(e) => setFormValues({ ...formValues, category: e.target.value })}
 						placeholder="Selecione a categoria"
 						className="w-[488px] h-[60] text-[#404040] p-4 rounded-[10px]"
 					/>
@@ -48,8 +57,8 @@ export function TransactionForm() {
 						type="text"
 						id="transacao"
 						required
-						value={transaction}
-						onChange={(e) => setTransaction(e.target.value)}
+						value={formValues.transaction}
+						onChange={(e) => setFormValues({ ...formValues, transaction: e.target.value })}
 						placeholder="Escreva aqui o título da sua transação"
 						className="w-[488px] h-[60] text-[#404040] p-4 rounded-[10px]"
 					/>
@@ -61,9 +70,9 @@ export function TransactionForm() {
 						<input
 							type="number"
 							id="valor"
-							value={value}
+							value={formValues.value}
 							required
-							onChange={(e) => setValue(Number(e.target.value))}
+							onChange={(e) => setFormValues({ ...formValues, value: Number(e.target.value)})}
 							className="text-[#404040] block w-[257px] h-[60px] text-[#404040] p-4 rounded-[10px]"
 						/>
 					</div>
@@ -73,8 +82,8 @@ export function TransactionForm() {
 							type="date"
 							id="date"
 							required
-							value={date}
-							onChange={e => setDate(e.target.value)}
+							value={formValues.date}
+							onChange={e => setFormValues({ ...formValues, date: e.target.value })}
 							className="text-[#404040] block h-[60px] text-[#404040] p-4 rounded-[10px]"
 						/>
 					</div>
